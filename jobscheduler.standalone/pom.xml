@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>kn.uni.sen.jobscheduler</groupId>
+		<artifactId>jobscheduler-trunk</artifactId>
+		<version>1.5.0</version>
+	</parent>
+	<artifactId>jobscheduler.standalone</artifactId>
+	<name>JobScheduler - Standalone</name>
+	<description>Makes a standalone software from the JobScheduler.
+So it provides a GUI to input the JobGraph and starts the JobScheduler to do the job.</description>
+	<repositories>
+		<repository>
+			<id>com.mxgraph</id>
+			<url>https://artifacts.alfresco.com/nexus/content/repositories/public/com/mxgraph/</url>
+		</repository>
+	</repositories>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>kn.uni.sen.jobscheduler</groupId>
+			<artifactId>jobscheduler.core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>kn.uni.sen.jobscheduler</groupId>
+			<artifactId>jobscheduler.console</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.53</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-core</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>jgraph</groupId>
+			<artifactId>jgraph</artifactId>
+			<version>5.13.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-ext</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+	</dependencies>
+</project>

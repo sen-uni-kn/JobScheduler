@@ -1,0 +1,50 @@
+TODO:
+- implement dynamic load of JobLibrary from a jar-library
+- remove all instances of ResourceList and only use next point
+- Subproject: Standalone seems to be old code never used
+
+Version 1.5.0
++ Bug: Console mode does not work for several input value of the same name
++ Bugfix: stop test application when ignoring tests
+
+Version 1.3.0
++ integrate Context of job in Job
++ every resource is a tree node
++ simplify internal notifications
++ refine infrastructure: JobClient, JobServer, JobSession, JobRun
++ Bug: Console outputs any message two times
+
+Version 1.2.0
++ add context to job
++ change result of Job.task()
++ implement logger with JobEvent, EventHandler (Infrastructure), EventLogger
++ run single Tests
++ Resource has a next pointer to create lists of resources
+
+Version 1.1.0
+
+Version 1.0.0 (maven, Artifact evaluation ATVA2019)
++ removed several warnings
++ Job can be called by console with Console_Library and Console_Job
+- Create automatic creation of shell file to run an experiment
+
+Version 0.6.0 (maven)
+
+Version 0.5.0 (maven)
++ delete monitor resources, use resource tag online instead
++ resource has refresh option to update data a job execution
++ Change Resource and ResourceDescription implementation
+
+Version 0.4.0 (maven)
++ test in JobAbstractTest can be ignores
+
+Version 0.3.0 (maven)
+ 
+Version 0.2.0 (maven)
++ Added Job version to each Job starting with JV_2.0.0
++ All files are written as UTF8
++ changed all functions to small letters
++ added JobStandalone: Start a jobgraph via a gui
+ 
+Version 0.1.0
+- initial version

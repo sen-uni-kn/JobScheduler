@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xmi="http://www.omg.org/XMI"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:jobgraph="http://jobgraph"
+	targetNamespace="se.uni-konstanz.de">
+<xsd:import namespace=http://www.omg.org/XMI schemaLocation="XMI.xsd" />
+
+<xsd:annotation>
+	<xsd:documentation>Created by Software Engineering Uni Konstanz</xsd:documentation>
+</xsd:annotation>
+
+<xs:simpleType name="jobstate" final="restriction" >
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Undefined" />
+		<xs:enumeration value="Check" />
+		<xs:enumeration value="Run" />
+		<xs:enumeration value="Pause" />
+		<xs:enumeration value="Resume" />
+		<xs:enumeration value="End" />
+		<xs:enumeration value="Finished" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xsd:complexType name="job">
+	<xsd:attribute ref="xmi:id" />
+	<xsd:attribute name="name" type="xsd:string"/>
+	<xsd:attribute name="jobname" type="xsd:string" use="required" />
+	<xsd:element name="job" type="jobgraph:job" maxOccurs="unbounded" minOccurs="0"/>
+	<xsd:element name="input" type="jobgraph:resource" maxOccurs="unbounded" minOccurs="0"/>
+	<xsd:element name="result" type="jobgraph:resource" maxOccurs="unbounded" minOccurs="0"/>
+	<xsd:element name="monitor" type="jobgraph:resource" maxOccurs="unbounded" minOccurs="0"/>
+</xsd:complexType>
+
+<xs:simpleType name="resourcekind" final="restriction" >
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="File" />
+		<xs:enumeration value="Folder" />
+		<xs:enumeration value="Integer" />
+		<xs:enumeration value="String" />
+		<xs:enumeration value="Float" />
+		<xs:enumeration value="Url" />
+		<xs:enumeration value="Float" />
+		<xs:enumeration value="Bool" />
+		<xs:enumeration value="List" />
+		<xs:enumeration value="Enum" />
+		<xs:enumeration value="Vector" />
+		<xs:enumeration value="Pointer" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="resourcetag" final="restriction" >
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="Shown" />
+		<xs:enumeration value="Necessary" />
+	</xs:restriction>
+</xs:simpleType>
+
+<xsd:complexType name="resource">
+	<xsd:attribute ref="xmi:id" />
+	<xsd:attribute name="name" type="xsd:string"/>
+	<xsd:attribute name="type" type="jobgraph:resourcekind" use="required" />
+	<xsd:attribute name="default" type="xsd:string" />
+	<xsd:attribute name="tag" type="jobgraph:resourcetag" maxOccurs="unbounded" minOccurs="0"/>
+	<xsd:element name="resource" type="jobgraph:resource" maxOccurs="unbounded" minOccurs="0"/>
+</xsd:complexType>
+
+</xsd:schema>

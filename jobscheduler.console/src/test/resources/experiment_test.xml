@@ -1,0 +1,21 @@
+<experiment>
+	<parameter>
+		<resource id="name" value="Peter" />
+		<resource id="name" value="Petra" />
+		<resource id="name" value="Evlis" />
+		<resource id="name" value="Evla" />
+		<resource id="resultFile" value="result/results.txt" src="file" />
+	</parameter>
+	<analysis name="{index}_{$name}" destiny="{$resultFile}">
+		<job id="job1" name="Job_Hello">
+			<input name="Input1" ref="$name" />
+			<input name="Result1" store="true"/>
+			<result name="StartTime" store="true" />
+		</job>
+		<job id="job2" name="Job_Bye">
+			<input name="Input1" ref="{$job1/Result1}" />
+			<result name="Result1" store="true" />
+			<result name="EndTime" store="true" />
+		</job>
+	</analysis>
+</experiment>

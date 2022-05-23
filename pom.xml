@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>kn.uni.sen.jobscheduler</groupId>
+	<artifactId>jobscheduler-trunk</artifactId>
+	<version>1.5.0</version>
+	<packaging>pom</packaging>
+	<name>JobScheduler - Trunk</name>
+	<description>The trunk contains all sub classes of the component JobScheduler </description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<jdom2.version>2.0.5</jdom2.version>
+		<!-- Testing -->
+		<junit.version>4.12</junit.version>
+	</properties>
+	<modules>
+		<module>jobscheduler.common</module>
+		<module>jobscheduler.core</module>
+		<module>jobscheduler.console</module>
+		<module>jobscheduler.job_logsystemload</module>
+		<module>jobscheduler.standalone</module>
+		<module>test.job_hello</module>
+		<module>test.job_bye</module>
+		<module>test.joblibrary</module>
+	</modules>
+	<scm>
+		<url>https://svn.uni-konstanz.de/soft/QuantUM+/jobscheduler</url>
+		<connection>scm:svn:https://svn.uni-konstanz.de/soft/QuantUM+/jobscheduler</connection>
+		<developerConnection>scm:svn:https://svn.uni-konstanz.de/soft/QuantUM+/jobscheduler</developerConnection>
+	</scm>
+	<dependencies>
+		<!-- testing dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+	</dependencies>
+</project> 

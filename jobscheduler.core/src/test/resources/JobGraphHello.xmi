@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi.version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jobgraph="http://jobgraph">
+	<xmi:documentation>
+		<xmi::exporter>Test version of a JobGraph</xmi::exporter>
+		<xmi::exporterVersion>1.0</xmi::exporterVersion>
+	</xmi:documentation>
+	<!-- input variables of jobgraph -->
+	<!-- necessary input for necessary output -->
+	<input id="InputString1" tag="necessary" />
+	<!-- default input - if missing there is an warning event -->
+	<input id="InputString2" />
+	<!-- input that is not given - if missing there is no warning-->
+	<input id="InputString3" tag="possible" />
+	<!-- input value is not used -->
+	<input id="InputString4" tag="ignore" />
+	
+	<!-- jobs without names only nest jobs -->
+	<job id="job2">
+		<!-- job hello is called and append hello to an input text -->
+		<job id="job1" jobname="hallo" tag="hide">
+			<!-- input data with id InputString1 is given to parameter Input1 of type String -->
+			<input ref="InputString1" name="Input1" type="String" />
+			<!-- monitor data shows data during process -->
+			<monitor name="JobState" type="String" kind="jobgraph:jobstate" />
+			<!-- result of calculation can be used by id -->
+			<result id="Result1" name="Result1" type="String" />
+		</job>
+	</job>
+	<!-- job bye is called and append string bye -->
+	<job id="job3" jobname="bye" tag="necessary">
+		<input ref="Result1" name="InputBye1" type="String" />
+		<result id="" name="Result1" type="String" />
+	</job>
+	
+	<!-- result variables of jobgraph - messages as with input -->
+	<result id="ResultString1" tag="necessary" />
+	<result id="ResultString2" />
+	<result id="ResultString3" tag="possible" />
+	<result id="ResultString3" tag="ignore" />
+</xmi:XMI>

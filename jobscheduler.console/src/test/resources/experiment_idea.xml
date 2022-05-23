@@ -1,0 +1,60 @@
+<experiment>
+	<parameter>
+		<resource id="results" value="../result.txt" src="file"
+			append="true" />
+
+		<resource id="name" value="Peter">
+			<resource id="text" />
+		</resource>
+		<resource id="name" value="Petra">
+			<resource id="text" />
+		</resource>
+		<resource id="name" value="Evlis">
+			<resource id="text" />
+		</resource>
+		<resource id="name" value="Evla">
+			<resource id="text" />
+		</resource>
+
+		<resource id="start" src="{job:hello/StartTime}" />
+		<resource id="stop" src="{job:bye/StoptTime}" />
+	</parameter>
+	<analysis name="{index}_{$name}">
+		<job id="hello" name="Job_Hello">
+			<input name="Input1" ref="name" />
+			<result name="Result1" ref="text" />
+			<result name="StartTime" ref="start" />
+			<result name="Results" ref="results" />
+		</job>
+		<job id="bye" name="Job_Bye">
+			<input name="Input1" ref="text" />
+			<result name="Result1" ref="results" />
+			<result name="EndTime" ref="end" />
+			<result name="Results" ref="results" />
+		</job>
+		<store>
+			<input name="destiny" ref="results" />
+			<input name="val" ref="index" />
+			<input name="val" ref="$name" />
+			<input name="val" ref="$job1/Input1" />
+			<input name="val" ref="$text" />
+			<input name="val" ref="$job2/Result1" />
+		</store>
+	</analysis>
+	<analysis>
+		<job name="Job_CreateTable">
+			<input name="Data" ref="results" />
+			<input name="Output" value="table" />
+			<input name="Destiny" value="resultAll.txt" src="file" />
+			<input index="1" name="add_attr" ref="index" />
+			<input index="2" name="add_attr" ref="$hello/Input1" />
+			<input index="3" name="add_attr" ref="$bye/Result1" />
+			<input index="4" name="add_attr" ref="start" />
+			<input index="5" name="add_attr" ref="stop" />
+			<input index="6" name="add_line" id="last" />
+			<input index="7" name="sort_attr" value="stop" />
+			<input index="8" name="sort_attr" value="start" />
+			<input index="9" name="calc_cum" value="index" />
+		</job>
+	</analysis>
+</experiment>
