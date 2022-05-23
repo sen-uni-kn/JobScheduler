@@ -1,7 +1,10 @@
 TODO:
 - implement dynamic load of JobLibrary from a jar-library
-- remove all instances of ResourceList and only use next point
 - Subproject: Standalone seems to be old code never used
+
+Version 1.6.0
++ request result data at end of job
++ output logs only once
 
 Version 1.5.0
 + Bug: Console mode does not work for several input value of the same name

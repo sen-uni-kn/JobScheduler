@@ -86,6 +86,7 @@ public class Helper
 	{
 		if (fileUrl == null)
 			return "";
+		//System.out.println("Path1: " + fileUrl);
 		String val = fileUrl.getPath();
 		// System.out.println("url: " + val);
 		int index = val.indexOf('%');

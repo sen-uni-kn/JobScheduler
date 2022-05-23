@@ -88,8 +88,8 @@ public abstract class JobAbstract extends RunContextAbstract implements Job
 		createResultDescr(JOBVERSION, ResourceType.STRING);
 		createResultDescr(JOBSTATE, ResourceType.ENUM);
 		createResultDescr(JOBRESULT, ResourceType.ENUM);
-		createResultDescr(STARTTIME, ResourceType.INTEGER);
-		createResultDescr(STOPTIME, ResourceType.INTEGER);
+		createResultDescr(STARTTIME, ResourceType.DATE);
+		createResultDescr(STOPTIME, ResourceType.DATE);
 	}
 
 	public JobAbstract(RunContext parent)
@@ -270,7 +270,7 @@ public abstract class JobAbstract extends RunContextAbstract implements Job
 	protected boolean checkResult()
 	{
 		boolean bGood = true;
-		ResourceInterface descr = resultDescription;
+		ResourceInterface descr = resultDescription.getChild();
 		while (descr != null)
 		{
 			ResourceInterface res = getResultResource(descr.getName());
@@ -331,11 +331,10 @@ public abstract class JobAbstract extends RunContextAbstract implements Job
 				setJobState(state);
 		}
 
+		timeEnd = Instant.now();
+		setJobState(JobState.FINISHED);
 		if (!!!checkResult())
 			setJobResult(JobResult.ERROR);
-
-		setJobState(JobState.FINISHED);
-		timeEnd = Instant.now();
 
 		if (parent != null)
 			parent.notify(this);

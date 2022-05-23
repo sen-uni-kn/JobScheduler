@@ -169,7 +169,7 @@ public class ResourceDescription extends ResourceAbstract
 	public <T extends ResourceInterface> T getResourceWithType()
 	{
 		ResourceInterface res = getChild();
-		if ((res == null) || (res.getType() != getType()))
+		if ((res == null) || (res.getType() != getDescrType()))
 			return null;
 		return (T) res;
 	}

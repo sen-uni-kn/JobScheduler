@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>kn.uni.sen.jobscheduler</groupId>
 		<artifactId>jobscheduler-trunk</artifactId>
-		<version>1.5.0</version>
+		<version>1.6.0</version>
 	</parent>
 	<artifactId>jobscheduler.job_logsystemload</artifactId>
 	<dependencies>

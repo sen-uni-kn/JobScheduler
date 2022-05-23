@@ -93,7 +93,7 @@ public abstract class JobAbstractTest extends JobAbstract implements OwnerResour
 		if (checkOnlineResults)
 			timer.schedule(new Test_ResultOnline(jobTest), 1000, monitorTime);
 
-		jobTest.addLogger(new LogConsole(2));
+		//jobTest.addLogger(new LogConsole(2));
 
 		ResourceInterface d = jobTest.getInputDescription();
 		while (d != null)

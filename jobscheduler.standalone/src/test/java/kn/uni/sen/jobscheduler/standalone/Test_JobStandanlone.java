@@ -24,7 +24,7 @@ public class Test_JobStandanlone
 		URL res = classLoader.getResource("JobGraphAlone.xmi");
 		assertTrue(res != null);
 
-		URL resLib = classLoader.getResource("test.joblibrary-1.5.0.jar");
+		URL resLib = classLoader.getResource("test.joblibrary-1.6.0.jar");
 		assertTrue(resLib != null);
 
 		String filePath = res.getPath();
